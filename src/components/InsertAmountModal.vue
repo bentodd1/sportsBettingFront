@@ -5,7 +5,7 @@
      </q-label>
      <q-input
         filled
-        v-model="email"
+        v-model="amount"
         label="Amount"
         hint="Amount you want to bet"
         type="number">
@@ -21,6 +21,7 @@ export default {
     data() {
       return {
         opened: false,
+        amount: 1.0
       }
     },
       methods: {

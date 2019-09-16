@@ -24,8 +24,8 @@
         <tr>
           <th class="text-left">Game </th>
           <th class="text-leftt">Date</th>
-          <th class="text-left">Spread</th>
-          <th class="text-left">Over Under</th>
+         <!-- <th class="text-left">Spread</th>
+          <th class="text-left">Over Under</th> -->
         </tr>
       </thead>
       <tbody>
