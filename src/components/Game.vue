@@ -61,7 +61,6 @@ export default {
         url = 'http://localhost:3000/user_bets'
         postData = {
           betting_scenario_id: gameData.id
-         // amount:
         }
 
         axios.post(url,postData)

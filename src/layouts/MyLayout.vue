@@ -13,7 +13,7 @@
         </q-btn>
 
         <q-toolbar-title>
-         Dog gone sports betting
+         Test
         </q-toolbar-title>
 
         <div>Not your moms betting.</div>

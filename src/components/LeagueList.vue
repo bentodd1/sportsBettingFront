@@ -48,7 +48,10 @@ export default {
         })
     },
     handleClick(League) {
+      console.log('Setting da league')
       console.log(League)
+      this.$store.commit('league/changeLeague',League)
+      console.log(this.$store.state.league.id)
       this.$router.push({ name: 'League', params:{League:  League }})
     }
   },

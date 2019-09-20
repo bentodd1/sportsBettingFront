@@ -5,7 +5,6 @@
     :scrollEvents="true"> -->
     <q-header elevated>
 
-{{this.$props.League.name}}
 
     </q-header>
      <!-- <ion-content
@@ -29,7 +28,7 @@
         </tr>
       </thead>
       <tbody>
-        <game v-for="game in this.list" :key="game.id" :gameData="game"></game>
+        <game v-for="game in getGameList" :key="game.id" :gameData="game"></game>
       </tbody>
       </q-markup-table>
 
@@ -45,22 +44,20 @@ import axios from 'axios';
 import game from './Game';
 
 export default {
-  name: 'LeagueList',
+  name: 'LeagueList'
 
-  props: {League:{}}
   ,
   components:{
     game
   },
   mounted() {
-    this.getGameList(),
-    this.League = this.$props.League
+    this.fetchGameList(),
+    this.League = this.$store.state.league
     /*axios.get('https://www.reddit.com/r/aww.json?raw_json=1')
       .then(response => {
         this.posts = response.data.data.children
       }) */
 
-      console.log(this.$props);
   },
   data() {
     return {
@@ -151,8 +148,11 @@ export default {
         })
         .then(a => a.present())
       },
-      async getGameList() {
-      const url = `http://localhost:3000/games?leagues_id=`+this.$props.League.id
+      async fetchGameList() {
+      console.log('Get game list');
+      console.log(this.$store.state.league)
+      const url = `http://localhost:3000/games?leagues_id=`+this.$store.state.league.leagueId
+      console.log(url)
       axios.get(url,{ crossdomain: true })
         .then((response) => {
 
@@ -160,6 +160,16 @@ export default {
             console.log(response.data)
         })
     }
+  },
+  computed: {
+    getGameList()
+    {
+      console.log('Getting game list')
+      console.log(this.list)
+      return this.list
+    }
+
+
   }
 }
 </script>
